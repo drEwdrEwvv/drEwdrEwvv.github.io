@@ -19,6 +19,8 @@ body {
   font-style: normal;
   text-transform: uppercase;
   letter-spacing: 0.05rem;
+  position: relative;
+  z-index: 1;
 }
 /* Norris CSS */
 :root {
@@ -26,6 +28,9 @@ body {
   --c-secondary: #081457;
   --font-size: 6rem;
   --animation-time: 25ms;
+  --bg-image: url("bg_image.png");
+  --bg-blur: 8px;
+  --bg-overlay: rgba(0,0,0,0.35);
 }
 a.norris {
   text-decoration: none;
@@ -81,4 +86,34 @@ a.norris:hover span::after {
   position: absolute;
   right:1rem;
   top: 1rem;
+}
+
+/* Fullscreen blurred background using pseudo-elements */
+body {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(var(--bg-blur));
+  transform: scale(1.03);
+  z-index: -2;
+  will-change: transform;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-overlay);
+  z-index: -1;
+  pointer-events: none;
 }
