@@ -11,7 +11,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background-color: transparent;
   min-height: 100vh;
   font-family: "Stack Sans Headline", sans-serif;
   font-optical-sizing: auto;
@@ -29,7 +29,7 @@ body {
   --font-size: 6rem;
   --animation-time: 25ms;
   --bg-image: url("bg_image.png");
-  --bg-blur: 8px;
+  --bg-blur: 2px;
   --bg-overlay: rgba(0,0,0,0.35);
 }
 a.norris {
@@ -38,6 +38,7 @@ a.norris {
   font-size: var(--font-size);
   overflow: hidden;
   line-height: var(font-size);
+  padding-top: 20px;
 }
 a.norris span {
   position: relative;
@@ -103,6 +104,7 @@ body::before {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  -webkit-filter: blur(var(--bg-blur));
   filter: blur(var(--bg-blur));
   transform: scale(1.03);
   z-index: -2;
