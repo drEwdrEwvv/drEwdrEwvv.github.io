@@ -25,7 +25,8 @@ body {
 /* Norris CSS */
 :root {
   --c-primary: #dde1d2;
-  --c-secondary: #081457;
+  /* --c-secondary: #081457;8 */
+  --c-secondary: #dde1d2
   --font-size: 6rem;
   --animation-time: 25ms;
   --bg-image: url("bg_image.png");
